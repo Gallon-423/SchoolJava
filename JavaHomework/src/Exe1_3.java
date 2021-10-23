@@ -10,6 +10,6 @@ public class Exe1_3 {
             int data2=data1+2;
             int data=data1^data2;
             System.out.print((char) data);
-        }
+        }   //Nothing,just take a shot on Git.
     }
 }
