@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @Time 2021-11-11,周四 18:11
  */
 
-public class Exe7_1 {
+public class Exe7_2 {
     public static void main(String[] args) throws Exception {
         Scanner sc=new Scanner(System.in);
         String path = sc.next();
