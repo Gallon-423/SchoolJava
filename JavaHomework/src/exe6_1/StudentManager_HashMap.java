@@ -1,12 +1,9 @@
-package Exe6_1.persistence;
-
-import Exe6_1.business.Student;
+package exe6_1;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 
 public class StudentManager_HashMap {
-    private HashMap<String,Student> students;
+    private HashMap<String, Student> students;
 
     public StudentManager_HashMap() {
         students=new HashMap<>();

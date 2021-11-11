@@ -1,22 +1,23 @@
-package Exe6_1.persistence;
+package exe6_1;
 
-import Exe6_1.business.Student;
 
-import java.util.ArrayList;
 import java.util.TreeSet;
 
-public class StudentManager_ArrayList {
-    private ArrayList<Student> students;
+public class StudentManager_TreeSet {
+    private TreeSet<Student> students;
 
-    public StudentManager_ArrayList() {
-        students=new ArrayList<>();
+    public StudentManager_TreeSet() {
+        students=new TreeSet<Student>();
     }
 
+    public void showStudents(){
+        students.forEach(o-> System.out.println(o));
+    }
 
     public void addStudent(String no, String name, int age, boolean gender) {
         Student newStudent=new Student(no,name,age,gender);
         for (Student student:students
-        ) {
+             ) {
             if(student.getNo().equals(no)){
                 //System.out.println("输入学号已被使用！");
                 return;
@@ -29,7 +30,6 @@ public class StudentManager_ArrayList {
         //System.out.println("增加学生成功");
     }
 
-
     public void deleteStudent(String noString){
         students.removeIf(student -> student.getNo().equals(noString));
         if(students.isEmpty()){
@@ -40,6 +40,5 @@ public class StudentManager_ArrayList {
     public void search(String no) {
         students.forEach(o->{if(o.getNo().equals(no)) System.out.print(0);});
     }
-
 
 }

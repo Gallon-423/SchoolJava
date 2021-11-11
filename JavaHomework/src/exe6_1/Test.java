@@ -1,17 +1,13 @@
-package Exe6_1.ui;
+package exe6_1;
 
-
-import Exe6_1.persistence.StudentManager_ArrayList;
-import Exe6_1.persistence.StudentManager_HashMap;
-import Exe6_1.persistence.StudentManager_LinkedList;
-import Exe6_1.persistence.StudentManager_TreeSet;
 
 import java.util.Random;
+
 /**
  * @Author Gallon
  * @ClassName Test
  * @Package Exe6_1.ui
- * @Description  为了简化打印，添加学生成功时不显示添加成功；查询同,输出一个数字0（不换行）表示查询成功。
+ * @Description  为了简化打印，添加学生成功时不显示“添加成功”；查询同,输出一个数字0（不换行）表示查询成功。
  * @Time 2021-11-09,周二 14:54
  */
 
@@ -45,6 +41,7 @@ public class Test {
             sa.search(nos[i]);
         }
         long t3=System.currentTimeMillis();
+        long t=System.nanoTime();
         for (int i = 0; i < 100; i++) {
             sa.deleteStudent(nos[i]);
         }

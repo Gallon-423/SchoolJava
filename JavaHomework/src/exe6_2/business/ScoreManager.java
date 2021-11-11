@@ -7,8 +7,10 @@ public class ScoreManager {
     private StudentManager sm;
     private CourseManager cm;
     public ScoreManager() {
+        sm=new StudentManager();
+        cm=new CourseManager();
     }
-    public void judge(String sNo,String cNo,int x){
+    public void judge(String sNo,String cNo,Double x){
         /**
          * @Name judge
          * @Params [sNo, cNo, x]
@@ -20,8 +22,26 @@ public class ScoreManager {
         student.getScores().replace(cNo,x);
 
     }
-    public void studentChooseCourse(String sNo,String cNo) throws Exception {
-        sm.search(sNo).getCoursesChosen().put(cNo,cm.search(cNo));
+
+    public StudentManager getSm() {
+        return sm;
+    }
+
+    public void setSm(StudentManager sm) {
+        this.sm = sm;
+    }
+
+    public CourseManager getCm() {
+        return cm;
+    }
+
+    public void setCm(CourseManager cm) {
+        this.cm = cm;
+    }
+
+    public void studentChooseCourse(String sNo, String cNo) throws Exception {
+        sm.search(sNo).choose(cm.search(cNo));
+        cm.search(cNo).chosen(sm.search(sNo));
         cm.search(cNo).getStudentsInCourse().put(sNo,sm.search(sNo));
     }
     public void addStudent(String no,String name,int age,boolean gender){

@@ -1,4 +1,4 @@
-package Exe6_1.business;
+package exe6_1;
 
 import java.util.Objects;
 

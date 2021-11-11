@@ -1,15 +1,12 @@
-package Exe6_1.persistence;
+package exe6_1;
 
-import Exe6_1.business.Student;
+import java.util.ArrayList;
 
-import java.util.LinkedList;
-import java.util.TreeSet;
+public class StudentManager_ArrayList {
+    private ArrayList<Student> students;
 
-public class StudentManager_LinkedList {
-    private LinkedList<Student> students;
-
-    public StudentManager_LinkedList() {
-        students=new LinkedList<>();
+    public StudentManager_ArrayList() {
+        students=new ArrayList<>();
     }
 
 
@@ -29,6 +26,7 @@ public class StudentManager_LinkedList {
         //System.out.println("增加学生成功");
     }
 
+
     public void deleteStudent(String noString){
         students.removeIf(student -> student.getNo().equals(noString));
         if(students.isEmpty()){
@@ -39,4 +37,6 @@ public class StudentManager_LinkedList {
     public void search(String no) {
         students.forEach(o->{if(o.getNo().equals(no)) System.out.print(0);});
     }
+
+
 }
