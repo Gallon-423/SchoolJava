@@ -2,16 +2,13 @@ package exe7_3.persistence;
 
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * @Author Gallon
  * @ClassName Student
- * @Package exe6_2.persistence
- * @Description 为提高查询效率在每一个学生对象类添加一个课程容器，采用hashmap()
- * 后续学生选择课程时添加在该容器添加课程，同样在课程中添加学生。
- * @Time 2021-11-11,周四 14:18
+ * @Package exe7_3.persistence
+ * @Description 加一个写入文件的功能，作业需求中没有说后期需要读取，故不实现对象序列化。
+ * @Time 2021-11-11,周四 19:06
  */
-
 public class Student {
     private String no;
     private String name;

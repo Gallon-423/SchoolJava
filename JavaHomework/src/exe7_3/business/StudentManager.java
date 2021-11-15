@@ -36,5 +36,7 @@ public class StudentManager {
         }
     }
 
-
+    public HashMap<String, Student> getStudents() {
+        return students;
+    }
 }

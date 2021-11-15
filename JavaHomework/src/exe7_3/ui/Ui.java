@@ -1,7 +1,10 @@
 package exe7_3.ui;
 
 import exe7_3.business.ScoreManager;
+import exe7_3.persistence.Course;
+import exe7_3.persistence.Student;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Ui {
@@ -20,6 +23,8 @@ public class Ui {
             System.out.println("0、退出");
             step=sc.nextInt();
             switch (step){
+                case 0:
+                    break;
                 case 1:
                     System.out.println("请输入学生学号：");
                     String no1=sc.next();
@@ -67,8 +72,72 @@ public class Ui {
                     String no8=sc.next();
                     scoreManager.getCm().search(no8).showAllStudents();
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + step);
             }
+
         }
         while(step!=0);
+
+
+        String target1="student_data.txt";
+        String target2="course_data.txt";
+        String target3="course_selection_data.txt";
+
+        File f1=new File(target1);
+        File f2=new File(target2);
+        File f3=new File(target3);
+
+        String a1= "学号    姓名      年龄      性别      \n";
+        FileWriter writer1 = new FileWriter(target1);
+        for(Student s:scoreManager.getSm().getStudents().values()){
+            char gen=s.isGender()?'男':'女';
+            String name= String.format("%-8s",s.getName());
+            String no= String.format("%-10s",s.getNo());
+            String age=String.format("%-8d",s.getAge());
+            a1+= name+no+age+gen+'\n';
+            //要求学号长度相等才能对齐。
+        }
+        writer1.write("");//清空原文件内容
+        writer1.write(a1);
+        writer1.flush();
+        writer1.close();
+
+        a1="课程号     课程名称    学分    \n";
+        FileWriter writer2 = new FileWriter(target2);
+        for(Course course:scoreManager.getCm().getCourses().values()){
+            String name= String.format("%-10s",course.getName());
+            String no= String.format("%-10s",course.getNo());
+            String grade=String.format("%-8.1f",course.getGrade());
+            a1+= no+name+grade+'\n';
+            //要求课程号长度相等才能对齐。
+        }
+        writer2.write("");//清空原文件内容
+        writer2.write(a1);
+        writer2.flush();
+        writer2.close();
+
+        a1="学号      课程号     成绩    \n";
+        FileWriter writer3 = new FileWriter(target3);
+        for(Student s:scoreManager.getSm().getStudents().values()){
+            for (String no:s.getScores().keySet()
+                 ) {
+                String sno= String.format("%-10s",s.getNo() );
+                String cno=String.format("%-10s",no );
+                String score=String.format("%-8f",s.getScores().get(no));
+                a1+=sno+cno+score+'\n';
+            }
+        }
+        writer3.write("");//清空原文件内容
+        writer3.write(a1);
+        writer3.flush();
+        writer3.close();
+
+
+
+
+
+
+
     }
 }
