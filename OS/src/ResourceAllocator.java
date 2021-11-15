@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
 /**
  * @Author Gallon
  * @ClassName ResourceAllocator
@@ -16,6 +14,17 @@ public class ResourceAllocator {
     public ResourceAllocator() {
     }
     public void add(Partition p){
+        if(p.begin>=p.end) return;
+        for (Partition args:emptyPartition
+             ) {
+            //这句代码是为了防止输入有重叠的空分区。
+            if(p.end<args.end&&p.end>args.begin || p.begin<args.end&&p.begin>args.begin)
+            {
+                args.begin=Integer.min(args.begin,p.begin);
+                args.end=Integer.max(args.end,p.end);
+                return;
+            }
+        }
         emptyPartition.add(p);
     }
 
@@ -29,7 +38,8 @@ public class ResourceAllocator {
              ) {
             int len=p.end-p.begin;
             if(len>=require) {
-                task.partition=p;
+                Partition temp= new Partition(p.begin,p.end);
+                task.partition=temp;
                 p.begin += require;
                 taskHashMap.put(task.name,task);
                 flag=0;
@@ -52,7 +62,8 @@ public class ResourceAllocator {
         ) {
             int len=p.end-p.begin;
             if(len>=require) {
-                task.partition=p;
+                Partition temp= new Partition(p.begin,p.end);
+                task.partition=temp;
                 p.begin += require;
                 taskHashMap.put(task.name,task);
                 flag=0;
@@ -75,7 +86,8 @@ public class ResourceAllocator {
         ) {
             int len=p.end-p.begin;
             if(len>=require) {
-                task.partition=p;
+                Partition temp= new Partition(p.begin,p.end);
+                task.partition=temp;
                 p.begin += require;
                 taskHashMap.put(task.name,task);
                 flag=0;
@@ -90,22 +102,35 @@ public class ResourceAllocator {
     public void recycle(String taskName){
         Task task=taskHashMap.get(taskName);
         Partition partition=task.partition;
-        partition.begin-=task.require;
+        emptyPartition.add(partition);
         taskHashMap.remove(taskName);
         merge();
     }
     public void show(){
         //展示当前可用空分区
         emptyPartition.sort(new FirstFitComparator());
-        System.out.println("剩余分区展示：");
+        System.out.println("剩余分区展示如下：");
         for (int i = 0; i < emptyPartition.size(); i++) {
             System.out.println("第"+(i+1)+"个空闲分区："+"起始地址为："+
                     emptyPartition.get(i).begin+
                     ",结束地址为："+emptyPartition.get(i).end);
         }
 
-    }
+        if (!taskHashMap.isEmpty()) {
+            System.out.println("任务分配表：");
+            for (Map.Entry<String,Task> args:taskHashMap.entrySet()
+                 ) {
+                Task task=args.getValue();
+                System.out.println(task.name+"号作业占用区域 "+"起始地址为："
+                        +task.partition.begin
+                        +",结束地址为："+(task.partition.begin+task.require));
 
+            }
+
+        }
+
+    }
+    
     public static class FirstFitComparator implements Comparator<Partition>{
         //用于首次适应算法以及输出展示剩余分区
         @Override

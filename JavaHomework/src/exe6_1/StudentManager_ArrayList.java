@@ -7,9 +7,8 @@ public class StudentManager_ArrayList {
 
     public StudentManager_ArrayList() {
         students=new ArrayList<>();
+       // System.out.println("一个新对象出现了~");
     }
-
-
     public void addStudent(String no, String name, int age, boolean gender) {
         Student newStudent=new Student(no,name,age,gender);
         for (Student student:students

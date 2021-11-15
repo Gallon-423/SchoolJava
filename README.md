@@ -1,3 +1,4 @@
 # SchoolJava
-Java code in school
-作业在JavaHomework里面，以提交名称命名。
+##Java code in school
+###Java程序设计作业在JavaHomework里面，以提交名称命名。
+###OS模拟动态分区作业在OS里，目前只有该内容。
