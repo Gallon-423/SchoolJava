@@ -18,7 +18,7 @@ public class ResourceAllocator {
         for (Partition args:emptyPartition
              ) {
             //这句代码是为了防止输入有重叠的空分区。
-            if(p.end<args.end&&p.end>args.begin || p.begin<args.end&&p.begin>args.begin)
+            if((p.end<=args.end&&p.end>=args.begin) || (p.begin<=args.end&&p.begin>=args.begin))
             {
                 args.begin=Integer.min(args.begin,p.begin);
                 args.end=Integer.max(args.end,p.end);
@@ -102,7 +102,7 @@ public class ResourceAllocator {
     public void recycle(String taskName){
         Task task=taskHashMap.get(taskName);
         Partition partition=task.partition;
-        emptyPartition.add(partition);
+        this.add(partition);
         taskHashMap.remove(taskName);
         merge();
     }

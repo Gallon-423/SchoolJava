@@ -1,6 +1,7 @@
 package exe6_1;
 
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -18,6 +19,10 @@ public class Test {
         testTreeSet();
         testLinkedList();
         testHashMap();
+        Student s=new Student();
+        System.out.println(Objects.hash(s));
+        Student s2=new Student();
+        System.out.println(Objects.hash(s2));
     }
 
     public static void testArraylist(){

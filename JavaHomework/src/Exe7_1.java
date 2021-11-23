@@ -15,8 +15,7 @@ import java.util.Scanner;
 public class Exe7_1 {
     public static void main(String[] args) throws Exception {
         Scanner sc=new Scanner(System.in);
-        String originPath=sc.next();
-        File ori=new File(originPath);
+        File ori=new File(sc.next());
         if(!ori.exists()) throw new Exception("文件不存在！你必须给出一个已存在的源文件用于复制！");
         String oriName=ori.getAbsolutePath();
         //注意此处要是有获取绝对路径的方法，否则只返回文件名字。

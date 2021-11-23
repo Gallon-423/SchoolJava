@@ -18,15 +18,14 @@ public class Exe7_2 {
         search(target);
 
     }
-    static public void search(File target){
+    public static void search(File target){
         if(target.isFile()) System.out.println(target.getName());
         else{
             System.out.println(target.getName());//文件夹的名字也要打印
             //递归打印的顺序类似于树遍历方法中的先序遍历。
             File[] files=target.listFiles();
-            for (File file:files
-                 ) {
-                search(file);
+            for (int i=0;i< files.length;i++) {
+                search(files[i]);
             }
         }
     }
