@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+/**
+ * @Author Gallon
+ * @ClassName Exe8_3
+ * @Description  鼠标事件点击切换幻灯片，红绿蓝播放
+ * @Time 2021-11-23,周二 16:28
+ */
 
 public class Exe8_3 {
     private static void createGUI()

@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ * @Author Gallon
+ * @ClassName Exe8_2
+ * @Description  棋盘设计GUI
+ * @Time 2021-11-23,周二 16:28
+ */
 
 public class Exe8_2 {
     public static void createGUI(){

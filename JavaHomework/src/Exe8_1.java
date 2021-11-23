@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ * @Author Gallon
+ * @ClassName Exe8_1
+ * @Description  窗口标题设置
+ * @Time 2021-11-23,周二 16:27
+ */
 
 public class Exe8_1 {
     private static void createGUI()
