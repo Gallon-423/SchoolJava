@@ -109,7 +109,8 @@ public class ResourceAllocator {
     public void show(){
         //展示当前可用空分区
         emptyPartition.sort(new FirstFitComparator());
-        System.out.println("剩余分区展示如下：");
+        if(!emptyPartition.isEmpty()) System.out.println("剩余分区展示如下：");
+        else System.out.println("当前无可用分区！");
         for (int i = 0; i < emptyPartition.size(); i++) {
             System.out.println("第"+(i+1)+"个空闲分区："+"起始地址为："+
                     emptyPartition.get(i).begin+
