@@ -12,7 +12,7 @@ import java.awt.event.*;
 public class Exe8_3 {
     private static void createGUI()
     {
-        final int[] i = {0};
+        final int[] i = new int[]{0};
         JFrame frame = new JFrame("Exe8_3");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel jPanel = new JPanel();
@@ -23,7 +23,7 @@ public class Exe8_3 {
             @Override
             public void mouseClicked(MouseEvent e)
             {
-                if(e.getButton() == MouseEvent.BUTTON1){
+                if(e.getButton() == MouseEvent.BUTTON1 ){
                     i[0]++;
                     if ((i[0] % 3) == 0) jPanel.setBackground(Color.red);
                     else if ((i[0] % 3) == 1) jPanel.setBackground(Color.green);

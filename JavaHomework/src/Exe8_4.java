@@ -1,3 +1,5 @@
+import javafx.scene.control.PasswordField;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +42,7 @@ class MyFrame extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         panel.setLayout(new FlowLayout());
+        
         panel.setSize(200,200);
         label = new JLabel("用户名");
         label2 = new JLabel("密 码");
@@ -51,7 +54,6 @@ class MyFrame extends JFrame implements ActionListener{
         panel.add(jTextField1);
         panel.add(label2);
         panel.add(jTextField2);
-
         panel.add(MyFrameButton);
         this.add(panel);
 
