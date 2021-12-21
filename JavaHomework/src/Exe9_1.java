@@ -48,6 +48,7 @@ public class Exe9_1 extends JFrame implements ActionListener {
         comboBox.addItem("数学");
         comboBox.addItem("计算机");
         comboBox.addItem("英语");
+        comboBox.setEditable(true);
         JPanel p1=new JPanel(new GridLayout(6,2));
         p1.add(labels[0]);
         p1.add(fields[0]);
@@ -87,26 +88,25 @@ public class Exe9_1 extends JFrame implements ActionListener {
             String name=fields[1].getText();
             String psd1=fields[2].getText();
             String psd2=fields[3].getText();
+            String hint="";
             boolean id_judge=id.matches("^[0-9]{6}$");
+            if(!id_judge) hint+="id wrong\n";
             boolean name_judge=name.matches("^[\\u4e00-\\u9fa5]{0,5}$");
+            if(!name_judge) hint+="name wrong\n";
             boolean psd1_judge=psd1.matches("^[0-9a-zA-z_]{5,7}$");
+            if(!psd1_judge) hint+="psd wrong\n";
             boolean psd2_judge=psd2.equals(psd1);
+            if(!psd2_judge) hint+="psd confirmed wrong\n";
             boolean selected=radio1.isSelected()||
                              radio2.isSelected()||
                              radio3.isSelected()||
                              radio4.isSelected();
 
-            if(id_judge&&name_judge&&psd1_judge&&psd2_judge&&selected){
-
-                JOptionPane.showMessageDialog(null,"注册成功！");
+            if(hint.length()==0&&selected){
+                JOptionPane.showMessageDialog(null,"注册成功！\n");
             }else{
-                JOptionPane.showMessageDialog(null,"注册失败！");
+                JOptionPane.showMessageDialog(null,"注册失败！\n"+hint);
             }
-
-
-
-
-
 
         }
     }

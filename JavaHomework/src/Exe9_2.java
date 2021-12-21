@@ -16,7 +16,7 @@ public class Exe9_2 extends JFrame {
 
         label=new JLabel();
         label.setVisible(true);
-        label.setPreferredSize(new Dimension(200, 100));
+        label.setPreferredSize(new Dimension(150, 20));
         label.setBackground(Color.blue);
         label.setForeground(Color.white);
         label.setOpaque(true);
@@ -38,7 +38,7 @@ public class Exe9_2 extends JFrame {
                 super.mouseMoved(e);
                 String x=Integer.toString(e.getXOnScreen());
                 String y=Integer.toString(e.getYOnScreen());
-                label.setText('('+x+","+y+')');
+                label.setText("(x,y)="+'('+x+","+y+')');
             }
         };
 
@@ -60,14 +60,9 @@ public class Exe9_2 extends JFrame {
             }
         });
         button.setPreferredSize(new Dimension(100,50));
-        panel1=new JPanel(new BorderLayout());
-        panel1.add(button,BorderLayout.CENTER);
-        panel2=new JPanel(new BorderLayout());
-        panel2.add(label,BorderLayout.CENTER);
-        JPanel panel=new JPanel(new BorderLayout());
-        panel.add(panel2,BorderLayout.NORTH);
-        panel.add(panel1,BorderLayout.SOUTH);
-
+        JPanel panel=new JPanel(new FlowLayout());
+        panel.add(label,BorderLayout.CENTER);
+        panel.add(button,BorderLayout.NORTH);
         this.add(panel);
 
     }

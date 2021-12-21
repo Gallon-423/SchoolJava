@@ -14,7 +14,7 @@ class Exe9_3_Panel extends JPanel {
 
         int width = getWidth();
         int height = getHeight();
-
+        System.out.println(width+"  "+height);
 
 
 
@@ -77,6 +77,7 @@ public class Exe9_3 extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(410, 440);
         setResizable(false);
+
     }
 
 
