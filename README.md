@@ -1,4 +1,4 @@
-# SchoolJava
+# SchoolJava 【完结】
 ## Java code in school
 ### Java程序设计作业在JavaHomework里面，以提交名称命名，
 ### 里面还有一些课件和课堂上的例子。
